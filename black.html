@@ -1,0 +1,162 @@
+<template>
+    <el-container>
+        <el-header>
+            <el-menu
+                    :default-active="activeIndex2"
+                    class="el-menu-demo"
+                    mode="horizontal"
+                    @select="handleSelect"
+                    background-color="#545c64"
+                    text-color="#fff"
+                    active-text-color="#ffd04b">
+                <el-menu-item index="0">
+                    <a href="http://computersc.xyz/"><img
+                            style="width: 80px; height: 80px"
+                            src="../../assets/hui.png"></a>
+                </el-menu-item>
+                <el-menu-item index="1">HOME</el-menu-item>
+                <el-submenu index="2">
+                    <template slot="title">CTF</template>
+                    <el-menu-item index="2-1">选项1</el-menu-item>
+                    <el-menu-item index="2-2">选项2</el-menu-item>
+                    <el-menu-item index="2-3">选项3</el-menu-item>
+                    <el-submenu index="2-4">
+                        <template slot="title">选项4</template>
+                        <el-menu-item index="2-4-1">选项1</el-menu-item>
+                        <el-menu-item index="2-4-2">选项2</el-menu-item>
+                        <el-menu-item index="2-4-3">选项3</el-menu-item>
+                    </el-submenu>
+                </el-submenu>
+                <el-menu-item index="3">问答</el-menu-item>
+                <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">资源下载</a></el-menu-item>
+            </el-menu>
+        </el-header>
+        <el-main>
+            <el-carousel :interval="4000" type="card" height="350px">
+                <el-carousel-item>
+                    <img src="../../assets/aq1.png" class="carousel_image_type">
+                </el-carousel-item>
+                <el-carousel-item>
+                    <img src="../../assets/aq2.jpg" class="carousel_image_type">
+                </el-carousel-item>
+                <el-carousel-item>
+                    <img src="../../assets/aq3.jpg" class="carousel_image_type">
+                </el-carousel-item>
+                <el-carousel-item>
+                    <img src="../../assets/aq4.jpeg" class="carousel_image_type">
+                </el-carousel-item>
+            </el-carousel>
+        </el-main>
+        <el-footer>
+            <div>
+                <el-row :gutter="20">
+                    <el-col :span="10">
+                        <div class="grid-content bg-purple">
+                            <el-card class="box-card">
+                                <div slot="header" class="clearfix">
+                                    <span>推荐文章</span>
+                                    <el-button style="float: right; padding: 3px 0" type="text">更多</el-button>
+                                </div>
+                                <el-table
+                                        :data="tableData"
+                                        :show-header="false"
+                                        style="width: 100%">
+                                    <el-table-column
+                                            prop="address"
+                                            width="400">
+                                    </el-table-column>
+                                    <el-table-column
+                                            prop="date"
+                                            width="120">
+                                    </el-table-column>
+                                </el-table>
+                            </el-card>
+                        </div>
+                    </el-col>
+                    <el-col :span="8">
+                        <div class="grid-content bg-purple">
+                            <el-card :body-style="{ padding: '10px' }" class="box-card1">
+                                <div slot="header" class="clearfix">
+                                    <span>推荐视频</span>
+                                    <el-button style="float: right; padding: 3px 0" type="text">更多</el-button>
+                                </div>
+                                <el-row :gutter="20">
+                                    <el-col :span="12">
+                                        <div class="grid-content bg-purple">
+                                            <el-card :body-style="{ padding: '10px' }" class="card1">
+                                                <img style="height: 100px;width: 100%" src="../../assets/21.jpg">
+                                                <div style="padding: 14px;"><span>汇编语言快速入门</span></div>
+                                            </el-card>
+                                        </div>
+                                    </el-col>
+                                    <el-col :span="12">
+                                        <div class="grid-content bg-purple">
+                                            <el-card :body-style="{ padding: '10px' }" class="card1">
+                                                <img style="height: 100px;width: 100%" src="../../assets/21.jpg">
+                                                <div style="padding: 14px;"><span>汇编语言快速入门</span></div>
+                                            </el-card>
+                                        </div>
+                                    </el-col>
+                                </el-row>
+                            </el-card>
+                        </div>
+                    </el-col>
+                    <el-col :span="5">
+                        <div class="grid-content bg-purple">
+                            <el-card class="box-card2">
+                                <div slot="header" class="clearfix">
+                                    <span>排行榜</span>
+                                    <el-button style="float: right; padding: 3px 0" type="text">更多</el-button>
+                                </div>
+                                <div v-for="o in 8" :key="o" class="text item">
+                                    {{ o + '.          test0' + o }}
+                                </div>
+                            </el-card>
+                        </div>
+                    </el-col>
+                </el-row>
+            </div>
+        </el-footer>
+    </el-container>
+
+</template>
+
+<script>
+    export default {
+        data() {
+            return {
+                tableData: [{
+                    date: '2016-05-02',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1518 弄'
+                }, {
+                    date: '2016-05-04',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1517 弄'
+                }, {
+                    date: '2016-05-01',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1519 弄'
+                }, {
+                    date: '2016-05-03',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1516 弄'
+                }]
+            }
+        }
+    }
+</script>
+
+<style scoped>
+    .el-carousel__item h3 {
+        color: #475669;
+        font-size: 14px;
+        opacity: 0.75;
+        line-height: 200px;
+        margin: 0;
+    }
+
+    .carousel_image_type {
+        width: 100%;
+    }
+</style>
