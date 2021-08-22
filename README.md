@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # untitled
 
 ## Project setup
@@ -22,3 +23,6 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+#ctf
+>>>>>>> eee19a289d8aad15a6bce00fbe40b115a698517e
