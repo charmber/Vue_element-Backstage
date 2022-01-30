@@ -1,38 +1,12 @@
 <template>
   <el-container>
     <el-header>
-      <el-menu
-          class="el-menu-demo"
-          mode="horizontal"
-          background-color="#545c64"
-          text-color="#fff"
-          active-text-color="#ffd04b">
-        <el-menu-item index="0">
-          <a href="http://computersc.xyz/"><img
-              style="width: 80px; height: 80px"
-              src="../../assets/hui.png"></a>
-        </el-menu-item>
-        <el-menu-item index="1">HOME</el-menu-item>
-        <el-submenu index="2">
-          <template slot="title">CTF</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
-          <el-submenu index="2-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="2-4-1">选项1</el-menu-item>
-            <el-menu-item index="2-4-2">选项2</el-menu-item>
-            <el-menu-item index="2-4-3">选项3</el-menu-item>
-          </el-submenu>
-        </el-submenu>
-        <el-menu-item index="3">问答</el-menu-item>
-        <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">资源下载</a></el-menu-item>
-      </el-menu>
+      <IndexHeader></IndexHeader>
     </el-header>
     <el-main>
       <el-carousel :interval="4000" type="card" height="350px">
         <el-carousel-item>
-          <img src="../../assets/aq1.png" class="carousel_image_type">
+          <img src="http://localhost:9001/api/image/carousel/1" class="carousel_image_type">
         </el-carousel-item>
         <el-carousel-item>
           <img src="../../assets/aq2.jpg" class="carousel_image_type">
@@ -58,7 +32,7 @@
                 <el-table
                     :data="rec"
                     :show-header="false"
-                    @row-click="test"
+                    @row-click="detailed"
                     style="width: 100%">
                   <el-table-column
                       prop="Title"
@@ -76,27 +50,23 @@
             <div class="grid-content bg-purple">
               <el-card :body-style="{ padding: '10px' }" class="box-card1">
                 <div slot="header" class="clearfix">
-                  <span>推荐视频</span>
+                  <span>通知&公告</span>
                   <el-button style="float: right; padding: 3px 0" type="text">更多</el-button>
                 </div>
-                <el-row :gutter="20">
-                  <el-col :span="12">
-                    <div class="grid-content bg-purple">
-                      <el-card :body-style="{ padding: '10px' }" class="card1">
-                        <img style="height: 100px;width: 100%" src="../../assets/21.jpg">
-                        <div style="padding: 14px;"><span>汇编语言快速入门</span></div>
-                      </el-card>
-                    </div>
-                  </el-col>
-                  <el-col :span="12">
-                    <div class="grid-content bg-purple">
-                      <el-card :body-style="{ padding: '10px' }" class="card1">
-                        <img style="height: 100px;width: 100%" src="../../assets/21.jpg">
-                        <div style="padding: 14px;"><span>汇编语言快速入门</span></div>
-                      </el-card>
-                    </div>
-                  </el-col>
-                </el-row>
+                <el-table
+                    :data="re"
+                    :show-header="false"
+                    @row-click="detailed"
+                    style="width: 100%">
+                  <el-table-column
+                      prop="Title"
+                      width="280">
+                  </el-table-column>
+                  <el-table-column
+                      prop="Time"
+                      width="120">
+                  </el-table-column>
+                </el-table>
               </el-card>
             </div>
           </el-col>
@@ -117,14 +87,16 @@
       </div>
     </el-footer>
   </el-container>
-
 </template>
 
 <script>
+import IndexHeader from '../../public/Header.vue'
 export default {
   data() {
     return {
-        rec:[]
+      rec:[],
+      re:[],
+      id:''
     }
   },
   created() {
@@ -134,14 +106,21 @@ export default {
     //推荐
     async Recommend(){
       const {data:res}=await this.$http.get("/article/get_rec")
-      console.log(res)
+      const {data:notice}=await this.$http.get("/article/get_notice")
       this.rec=res.data
-      console.log(this.rec)
+      this.re=notice.data
     },
-    test(){
-      console.log("test")
-    }
-  }
+    async Jump(){
+      await this.$router.push("/admin");
+    },
+    async detailed(row){
+      this.id=row.ID
+      await this.$router.push(`/article/${this.id}`);
+    },
+  },
+  components:{
+    IndexHeader,
+  },
 }
 </script>
 

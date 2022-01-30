@@ -11,9 +11,11 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "element-ui": "^2.15.3",
+    "highlight.js": "^11.4.0",
     "swiper": "^6.8.0",
     "vue": "^2.6.11",
-    "vue-router": "^3.5.2"
+    "vue-router": "^3.5.2",
+    "wangeditor": "^4.7.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
