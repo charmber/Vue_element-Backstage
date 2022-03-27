@@ -1,18 +1,6 @@
+
 ### CTF信息安全竞赛前端项目
-## Project setup
-```
-yarn install
-```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
 ##### 需要配合[后端go项目](https://github.com/charmber/CTF)使用
 
 #### 目前拥有功能：
@@ -38,3 +26,11 @@ yarn build
 ![](https://raw.githubusercontent.com/charmber/images/main/20220327164842.png)
 
 并且使用富文本进行书写文章，以便获得更好的体验
+
+```
+npm install
+```
+
+```
+npm run serve
+```

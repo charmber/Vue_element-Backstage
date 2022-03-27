@@ -1,5 +1,6 @@
 {
   "name": "untitled",
+  "name": "vue_el",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -15,7 +16,11 @@
     "swiper": "^6.8.0",
     "vue": "^2.6.11",
     "vue-router": "^3.5.2",
-    "wangeditor": "^4.7.10"
+    "wangeditor": "^4.7.10",
+    "core-js": "^3.6.5",
+    "element-ui": "^2.4.5",
+    "vue": "^2.6.11",
+    "vue-router": "^3.5.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -24,7 +29,19 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "axios": "^0.21.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "file-saver": "^2.0.5",
+    "less": "^4.1.1",
+    "less-loader": "^7.3.0",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "vue-cli-plugin-element": "~1.0.1",
+    "vue-template-compiler": "^2.6.11",
+    "xlsx": "^0.16.9"
   },
   "eslintConfig": {
     "root": true,
