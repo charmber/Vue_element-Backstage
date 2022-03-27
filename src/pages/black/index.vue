@@ -22,6 +22,15 @@
               <el-menu-item index="notice">添加公告</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
+          <el-submenu index="2">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span slot="title">轮播图管理</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="addcarousel">添加轮播图</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
           <el-menu-item index="AddProblem">
             <i class="el-icon-menu"></i>
             <span slot="title">添加问题</span>
@@ -54,7 +63,7 @@ export default {
   },
   mounted() {
     this.beforeRouteEnter();
-    this.beforeRouteLeave();
+    //this.beforeRouteLeave();
   },
   methods: {
     beforeRouteEnter(to, from, next) {

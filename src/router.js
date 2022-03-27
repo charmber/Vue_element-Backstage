@@ -10,6 +10,8 @@ import AddProblem from "@/pages/black/AddProblem";
 import MiscProblem from './pages/problem/misc/problem/index.vue'
 import Login from './pages/admin/login.vue'
 import Notice from './pages/black/AddNotice/index.vue'
+import AddCarousel from './pages/black/Carousel/AddImages/index'
+import Reverse  from './pages/problem/reverse/reverse'
 
 Vue.use(Router)
 
@@ -23,6 +25,7 @@ const router=new Router({
             path:'/problem',component:Problem,
             children:[
                 {path:'/misc',component:Misc},
+                {path:'/reverse',component:Reverse},
             ]
         },
         {path:'/article/:id',component:Article},    //文章详情
@@ -34,7 +37,8 @@ const router=new Router({
             children:[
                 {path:'/add',component:Add},
                 {path:'/addproblem',component: AddProblem},
-                {path: '/notice',component: Notice}
+                {path: '/notice',component: Notice},
+                {path: '/addcarousel',component: AddCarousel},
 
             ]
         }

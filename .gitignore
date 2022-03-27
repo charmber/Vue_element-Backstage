@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 /dist
+/src/assets/
+.gitignore
 
 
 # local env files

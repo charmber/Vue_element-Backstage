@@ -194,9 +194,10 @@ export default {
         });
         return;
       } else {
-        window.localStorage.setItem("token", res.data.token);
-        window.localStorage.setItem("nickname", res.data.nickname);
-        window.localStorage.setItem("nickname", res.data.number);
+        window.localStorage.setItem("token", res.token);
+        window.localStorage.setItem("username", res.username);
+        window.localStorage.setItem("email", res.email);
+        window.localStorage.setItem("number", res.number);
         await this.$router.push("/index");
       }
     },

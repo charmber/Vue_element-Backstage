@@ -46,8 +46,11 @@ export default {
       ],
       value: "",
       editor: "",
+      token:"",
       article: {
         title: "",
+        username:"",
+        number:"",
         content: "",
         name: "chamber",
         news_type:"",
@@ -65,6 +68,9 @@ export default {
       // 挂载highlight插件
       this.editor.highlight = hljs;
       this.editor.create();
+      this.article.number=window.localStorage.getItem("number")
+      this.token=window.localStorage.getItem("token")
+      this.article.username=window.localStorage.getItem("username")
     },
     async subit() {
       var myDate = new Date();
@@ -75,9 +81,7 @@ export default {
           myDate.getFullYear() + "-" + myDate.getMonth() + "-" + myDate.getDate();
       this.article.content = this.editor.txt.html();
 
-      const { data: res } = await this.$http.post("article/create",this.article,{params:{
-        token:"jsjxh666"
-        }})
+      const { data: res } = await this.$http.post("article/create",this.article,{params:{token:this.token}})
       if (res.code !== 200) {
         this.$message({
           message: res.msg,

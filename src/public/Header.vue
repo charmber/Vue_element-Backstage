@@ -58,7 +58,8 @@ export default {
       if(command=='a'){
 
       } else if(command=='b') {
-        this.$router.push("/admin");
+        let router=this.$router.resolve({path:"/admin"});
+        window.open(router.href);
         // eslint-disable-next-line no-empty
       } else if(command=='c') {
 

@@ -6,7 +6,7 @@
     <el-main>
       <el-carousel :interval="4000" type="card" height="350px">
         <el-carousel-item>
-          <img src="http://localhost:9001/api/image/carousel/1" class="carousel_image_type">
+          <img src="../../assets/aq1.png" class="carousel_image_type">
         </el-carousel-item>
         <el-carousel-item>
           <img src="../../assets/aq2.jpg" class="carousel_image_type">
@@ -77,8 +77,8 @@
                   <span>排行榜</span>
                   <el-button style="float: right; padding: 3px 0" type="text">更多</el-button>
                 </div>
-                <div v-for="o in 8" :key="o" class="text item">
-                  {{ o + '.          test0' + o }}
+                <div v-for="(it,i) in list" :key="it" class="text item">
+                  {{i+1}}. {{it}}
                 </div>
               </el-card>
             </div>
@@ -96,7 +96,9 @@ export default {
     return {
       rec:[],
       re:[],
-      id:''
+      id:'',
+      list:[]
+
     }
   },
   created() {
@@ -107,8 +109,10 @@ export default {
     async Recommend(){
       const {data:res}=await this.$http.get("/article/get_rec")
       const {data:notice}=await this.$http.get("/article/get_notice")
+      const {data:list}=await this.$http.get("/api/leaderboard/find")
       this.rec=res.data
       this.re=notice.data
+      this.list=list.data
     },
     async Jump(){
       await this.$router.push("/admin");
@@ -118,6 +122,8 @@ export default {
       await this.$router.push(`/article/${this.id}`);
     },
   },
+
+  //导入头部菜单
   components:{
     IndexHeader,
   },

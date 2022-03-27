@@ -11,7 +11,7 @@
             <i class="el-icon-location"></i>
             <span slot="title">Misc</span>
         </el-menu-item>
-        <el-menu-item index="cp">
+        <el-menu-item index="reverse">
           <i class="el-icon-menu"></i>
           <span slot="title">逆向</span>
         </el-menu-item>
