@@ -14,6 +14,7 @@
     <el-form-item label="题目类型">
       <el-select v-model="problem.problem_type" placeholder="请选择题目类型">
         <el-option label="Misc" value="Misc"></el-option>
+        <el-option label="Reverse" value="Reverse"></el-option>
         <el-option label="Web" value="Web"></el-option>
       </el-select>
     </el-form-item>

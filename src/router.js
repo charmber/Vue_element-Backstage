@@ -12,6 +12,7 @@ import Login from './pages/admin/login.vue'
 import Notice from './pages/black/AddNotice/index.vue'
 import AddCarousel from './pages/black/Carousel/AddImages/index'
 import Reverse  from './pages/problem/reverse/reverse'
+import UserMange from "@/pages/black/UserMange/UserMange";
 
 Vue.use(Router)
 
@@ -39,6 +40,7 @@ const router=new Router({
                 {path:'/addproblem',component: AddProblem},
                 {path: '/notice',component: Notice},
                 {path: '/addcarousel',component: AddCarousel},
+                {path: '/usermange',component: UserMange}
 
             ]
         }

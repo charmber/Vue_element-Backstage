@@ -58,9 +58,7 @@ export default {
         number:"",
         display:""
       },
-      through:[
-          1,3,5
-      ],
+      through:[],
       UserInfo:{
         token:"",
         number:""
@@ -105,6 +103,11 @@ export default {
         await this.$alert("答案正确", "成功", {
           confirmButtonText: "确定",
         });
+      }else if(res.code==403){
+        await this.$alert("未授权访问", "警告", {
+          confirmButtonText: "确定",
+        });
+        window.localStorage.clear()
       }
       else{
         await this.$alert("答案错误", "警告", {

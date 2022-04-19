@@ -6,16 +6,16 @@
     <el-main>
       <el-carousel :interval="4000" type="card" height="350px">
         <el-carousel-item>
-          <img src="../../assets/aq1.png" class="carousel_image_type">
+          <img src="http://127.0.0.1:9000/api/image/carousel/get/1.jpg" class="carousel_image_type">
         </el-carousel-item>
         <el-carousel-item>
-          <img src="../../assets/aq2.jpg" class="carousel_image_type">
+          <img src="http://127.0.0.1:9000/api/image/carousel/get/2.jpg" class="carousel_image_type">
         </el-carousel-item>
         <el-carousel-item>
-          <img src="../../assets/aq3.jpg" class="carousel_image_type">
+          <img src="http://127.0.0.1:9000/api/image/carousel/get/3.jpg" class="carousel_image_type">
         </el-carousel-item>
         <el-carousel-item>
-          <img src="../../assets/aq4.jpeg" class="carousel_image_type">
+          <img src="http://127.0.0.1:9000/api/image/carousel/get/4.png" class="carousel_image_type">
         </el-carousel-item>
       </el-carousel>
     </el-main>

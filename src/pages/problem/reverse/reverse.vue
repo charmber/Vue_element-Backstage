@@ -30,7 +30,7 @@
         title="提示"
         :visible.sync="dialogVisible"
         width="30%">
-      <el-button type="primary"><a :href="'http://127.0.0.1:9000/api/problem/misc/'+id">下载附件</a></el-button>
+      <el-button type="primary"><a :href="'http://127.0.0.1:9000/api/problem/reverse/'+id">下载附件</a></el-button>
       <br><br>
       <span>答案: </span>
       <el-input v-model="answer" placeholder="请输入内容" class="ans"></el-input>
@@ -58,9 +58,7 @@ export default {
         number:"",
         display:""
       },
-      through:[
-        1,3,5
-      ],
+      through:[],
       UserInfo:{
         token:"",
         number:""
@@ -73,12 +71,12 @@ export default {
   methods:{
     async GetProblem(){
       if(window.localStorage.getItem("token")==null) {
-        const {data: res} = await this.$http.get("/api/problem/misc")
+        const {data: res} = await this.$http.get("/api/problem/reverse")
         this.problemData = res.data
       }else {
         this.UserInfo.number=window.localStorage.getItem("number")
         this.UserInfo.token=window.localStorage.getItem("token")
-        const {data: res} = await this.$http.post("/api/problem/misc",this.UserInfo)
+        const {data: res} = await this.$http.post("/api/problem/reverse",this.UserInfo)
         this.problemData = res.data
         this.through=res.through
       }

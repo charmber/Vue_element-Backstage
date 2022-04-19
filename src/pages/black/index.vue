@@ -35,7 +35,7 @@
             <i class="el-icon-menu"></i>
             <span slot="title">添加问题</span>
           </el-menu-item>
-          <el-menu-item index="4">
+          <el-menu-item index="usermange">
             <i class="el-icon-setting"></i>
             <span slot="title">用户管理</span>
           </el-menu-item>
